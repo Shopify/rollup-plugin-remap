@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "plugin:shopify/esnext",
+    "plugin:shopify/node",
+    "plugin:shopify/mocha"
+  ],
+  "rules": {
+    "newline-before-return": ["error"],
+    "newline-after-var": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "promise/always-return": 0
+  }
+}
