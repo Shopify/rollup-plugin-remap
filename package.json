@@ -21,9 +21,11 @@
   },
   "scripts": {
     "test": "npm run lint && npm run mocha",
-    "mocha": "mocha --compilers js:babel-register -u tdd test/index.js",
+    "mocha": "mocha $(npm run -s mocha:reporter-args) --compilers js:babel-register -u tdd test/index.js",
+    "mocha:reporter-args": "[ -n \"${CI}\" ] && echo --reporter xunit --reporter-options output=$CIRCLE_TEST_REPORTS/junit/mocha.xml",
     "prepublish": "babel -d lib/ src/",
-    "lint": "eslint --max-warnings 0 -c .eslintrc.json src/ test/"
+    "lint": "eslint $(npm run -s lint:reporter-args) --max-warnings 0 -c .eslintrc.json src/ test/",
+    "lint:reporter-args": "[ -n \"${CI}\" ] && echo -o $CIRCLE_TEST_REPORTS/junit/eslint.xml -f junit"
   },
   "keywords": [
     "rollup,es6,esnext"
