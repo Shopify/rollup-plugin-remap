@@ -1,0 +1,39 @@
+{
+  "name": "rollup-plugin-remap",
+  "version": "1.0.0",
+  "description": "Remaps module imports to teh specified new path. Useful for conditionally excluding packages in different build modes.",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "author": "Shopify Inc.",
+  "dependencies": {
+    "rollup-pluginutils": "1.5.2"
+  },
+  "devDependencies": {
+    "babel": "~6.5.2",
+    "babel-cli": "~6.11.4",
+    "babel-core": "~6.13.2",
+    "babel-plugin-add-shopify-header": "~1.0.5",
+    "babel-preset-shopify": "~13.0.0",
+    "babel-register": "~6.11.6",
+    "eslint": "~3.3.1",
+    "eslint-plugin-shopify": "~14.0.0",
+    "mocha": "~3.0.2"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run mocha",
+    "mocha": "mocha --compilers js:babel-register -u tdd test/index.js",
+    "prepublish": "babel -d lib/ src/",
+    "lint": "eslint --max-warnings 0 -c .eslintrc.json src/ test/"
+  },
+  "keywords": [
+    "rollup,es6,esnext"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Shopify/rollup-plugin-remap.git"
+  },
+  "homepage": "https://github.com/Shopify/rollup-plugin-remap",
+  "bugs": {
+    "url": "https://github.com/Shopify/rollup-plugin-remap/issues"
+  }
+}
