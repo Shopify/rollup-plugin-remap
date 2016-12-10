@@ -1,6 +1,6 @@
-import assert from 'assert';
-import {join} from 'path';
-import remap from '../src/index';
+const assert = require('assert');
+const {join} = require('path');
+const remap = require('../index'); // eslint-ignore-this-line node/no-missing-require
 
 suite('This will test rollup-plugin-remap', () => {
   test('it resolves relative paths', () => {
