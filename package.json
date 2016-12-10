@@ -2,28 +2,26 @@
   "name": "@shopify/rollup-plugin-remap",
   "version": "0.0.1",
   "description": "Remaps module imports to teh specified new path. Useful for conditionally excluding packages in different build modes.",
-  "main": "lib/index.js",
+  "main": "index.js",
+  "jsnext:main": "index.es.js",
   "license": "MIT",
   "author": "Shopify Inc.",
   "dependencies": {
     "rollup-pluginutils": "1.5.2"
   },
   "devDependencies": {
-    "babel": "~6.5.2",
-    "babel-cli": "~6.11.4",
-    "babel-core": "~6.13.2",
-    "babel-plugin-add-shopify-header": "~1.0.5",
-    "babel-preset-shopify": "~13.0.0",
-    "babel-register": "~6.11.6",
+    "buble": "0.14.2",
     "eslint": "~3.3.1",
     "eslint-plugin-shopify": "~14.0.0",
-    "mocha": "~3.0.2"
+    "mocha": "~3.0.2",
+    "rollup": "0.36.4",
+    "rollup-plugin-buble": "0.14.0"
   },
   "scripts": {
-    "test": "npm run lint && npm run mocha",
-    "mocha": "mocha $(npm run -s mocha:reporter-args) --compilers js:babel-register -u tdd test/index.js",
+    "test": "npm run lint && npm run prepublish && npm run mocha",
+    "prepublish": "rollup -c rollup.config.js",
+    "mocha": "mocha $(npm run -s mocha:reporter-args) --compilers js:buble/register -u tdd test/index.js",
     "mocha:reporter-args": "[ -n \"${CI}\" ] && echo --reporter xunit --reporter-options output=$CIRCLE_TEST_REPORTS/junit/mocha.xml",
-    "prepublish": "babel -d lib/ src/",
     "lint": "eslint $(npm run -s lint:reporter-args) --max-warnings 0 -c .eslintrc.json src/ test/",
     "lint:reporter-args": "[ -n \"${CI}\" ] && echo -o $CIRCLE_TEST_REPORTS/junit/eslint.xml -f junit"
   },
