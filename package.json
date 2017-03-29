@@ -20,7 +20,7 @@
   "scripts": {
     "test": "yarn run lint && yarn run prepublish && yarn run mocha",
     "prepublish": "rollup -c rollup.config.js",
-    "mocha": "mocha $(yarn run mocha:reporter-args 2>&1 >/dev/null) --compilers js:buble/register -u tdd test/index.js",
+    "mocha": "mocha $(yarn run mocha:reporter-args 2>&1 >/dev/null) -u tdd test/index.js",
     "mocha:reporter-args": "test -n \"${CI}\" && >&2 echo --reporter xunit --reporter-options output=$CIRCLE_TEST_REPORTS/junit/mocha.xml || true",
     "lint": "eslint $(yarn run lint:reporter-args 2>&1 >/dev/null) --max-warnings 0 -c .eslintrc.json src/ test/",
     "lint:reporter-args": "test -n \"${CI}\" && >&2 echo -o $CIRCLE_TEST_REPORTS/junit/eslint.xml -f junit || true"
