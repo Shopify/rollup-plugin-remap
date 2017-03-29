@@ -1,5 +1,5 @@
 {
-  "name": "@shopify/rollup-plugin-remap",
+  "name": "rollup-plugin-remap",
   "version": "0.0.3",
   "description": "Remaps module imports to teh specified new path. Useful for conditionally excluding packages in different build modes.",
   "main": "index.js",
