@@ -3,9 +3,9 @@
 rollup-plugin-remap
 ===
 
-Plugin to imported modules to other file paths. Useful for conditional
-compilation, ie: remapping development focused modules to a `noop` during a prod
-build.
+Plugin to remap imported modules to other file paths. Useful for conditional
+compilation, ie: remapping development focused modules to a `noop` during a
+production build.
 
 # Examples
 
