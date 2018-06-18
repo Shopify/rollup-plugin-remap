@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/Shopify/rollup-plugin-remap.png?circle-token=67914ecf2f4628eb18a184faeeab9e7444b244cd)](https://circleci.com/gh/Shopify/rollup-plugin-remap)
+[![Travis](https://travis-ci.com/Shopify/rollup-plugin-remap.svg?branch=master)](https://travis-ci.com/Shopify/rollup-plugin-remap)
 
 rollup-plugin-remap
 ===
