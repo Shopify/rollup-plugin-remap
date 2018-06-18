@@ -6,5 +6,5 @@ bower_components
 node_modules
 *.log
 LICENSE.md
-circle.yml
 rollup.config.js
+.travis.yml
