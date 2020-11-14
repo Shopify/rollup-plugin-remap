@@ -16,12 +16,13 @@ __rollup.config.js__
 ```js
 const plugins = [];
 
-if (process.env.BUILD_MODE === 'proudction') {
+if (process.env.BUILD_MODE === 'production') {
   plugins.push(remap({
     originalPath: 'src/logger.js',
     targetPath: 'src/noop.js'
   }));
 }
+
 export default {
   entry: 'src/someModule.js',
   plugins
